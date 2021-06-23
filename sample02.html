@@ -1,0 +1,21 @@
+<meta http-equiv="content-type" charset="utf-8">
+
+<script type="text/javascript">
+<!--
+  function returnWindow() {
+    // 親ウィンドウの存在チェック
+    if(!window.opener || window.opener.closed){
+       window.alert('親ウィンドウがありません。');
+       return false;
+    }
+    // 子ウィンドから親ウィンドウへ値を渡す
+    window.opener.document.getElementById("pr_name").innerHTML = document.getElementById("chl_name").value;
+    window.opener.document.getElementById("pr_age").innerHTML  = document.getElementById("chl_age").value;
+  }
+-->
+</script>
+
+<b>子ウィンドウ１</b>
+<p>氏名：<input type="text" id="chl_name"></p>
+<p>年齢：<input type="text" id="chl_age"></p>
+<p><a href="javascript:void(0);" onclick="returnWindow()">親ウィンドウに値を渡す</a></p>
