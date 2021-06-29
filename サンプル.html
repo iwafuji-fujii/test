@@ -1,18 +1,37 @@
-<div
-  id="map"
-  data-lat="35.68079385698033"
-  data-lng="139.76710898064266"
-  data-zoom="14"
-  data-marker="off"
-  data-geolocate-control="on"
-  data-style="geolonia/gsi"
-></div>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+  <body>
+    <script>
 
-<div class="center-marker"></div>
+function getCSV(){
+    var req = new XMLHttpRequest();
+    req.open("get", "sample.csv", true); 
+    req.send(null); 
+	
+    	
+    req.onload = function(){
+	convertCSVtoArray(req.responseText);
+    }
+}
+ 
+function convertCSVtoArray(str){
+    var result = [];
+    var tmp = str.split("\n"); 
+ 
+   
+    for(var i=0;i<tmp.length;++i){
+        result[i] = tmp[i].split(',');
+    }
+ 
+    alert(result[1][2]); 
+}
+ 
+getCSV(); 
 
-<div class="footer">
-  <div id="address">地図を動かしてください。</div>
-  <div class="credit"><a href="https://github.com/geolonia/open-reverse-geocoder">@geolonia/open-reverse-geocoder</a></div>
-</div>
 
-<script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=YOUR-API-KEY"></script>
+
+</script>
+  </body>
+</html>
